@@ -125,9 +125,11 @@ app.get('/detail', function (req, res) {
 });
 
 app.get('/paymentresult/success', (req, res) => {
+
+    var query = req.query;
     var currentUrl = fullUrl(req);
     var host = `${currentUrl.protocol}://${currentUrl.host}`;
-    res.render('success', {host});
+    res.render('success', {host: host, data: query });
 })
 
 app.get('/paymentresult/failure', (req, res) => {

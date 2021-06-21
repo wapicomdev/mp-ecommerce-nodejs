@@ -5,7 +5,7 @@
                 <div class="pd-billboard pd-category-header">
                     <div class="pd-l-plate-scale">
                         <div class="pd-billboard-background">
-                            <img src="{{data}}/assets/music-audio-alp-201709" alt="" width="1440" height="320"
+                            <img src="{{host}}/assets/music-audio-alp-201709" alt="" width="1440" height="320"
                                 data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306"
                                 class="pd-billboard-hero ir">
                         </div>
@@ -46,14 +46,50 @@
         <div class="text-center">
             <h4><strong>Datos Adicionales</strong>:</h4>
             <br />
-            <h4>{motivo}</h4>
-            <table role="table">
-                <thead>
-                    <td>asd</td>
-                </thead>
-                <tr></tr>
-            </table>
         </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><strong>Campo</strong></th>
+                    <th><strong>Valor</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i>collection_id</i></td>
+                    <td>{{data.collection_id}}</td>
+                </tr>
+                <tr>
+                    <td><i>collection_status</i></td>
+                    <td>{{data.collection_status}}</td>
+                </tr>
+                <tr>
+                    <td><i>external_reference</i></td>
+                    <td>{{data.external_reference}}</td>
+                </tr>
+                <tr>
+                    <td><i>payment_type</i></td>
+                    <td>{{data.payment_type}}</td>
+                </tr>
+                <tr>
+                    <td><i>preference_id</i></td>
+                    <td>{{data.preference_id}}</td>
+                </tr>
+                <tr>
+                    <td><i>site_id</i></td>
+                    <td>{{data.site_id}}</td>
+                </tr>
+                <tr>
+                    <td><i>processing_mode</i></td>
+                    <td>{{data.processing_mode}}</td>
+                </tr>
+                <tr>
+                    <td><i>merchant_account_id</i></td>
+                    <td>{{data.merchant_account_id}}</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </div>
 <div class="col-lg-12">
