@@ -51,8 +51,9 @@ app.get('/detail', function (req, res) {
     // Crea un objeto de preferencia
     let preference = {
         auto_return: 'approved',
-        notification_url: 'https://hookb.in/eKKYYQKpNDTeYYRdZdeM',
+        notification_url: 'https://hookb.in/Z22K7yyOxBSR33eLoLRD',
         collector_id: 469485398,
+        external_reference: 'digitalports2@gmail.com',
         back_urls: {
             "success": `${host}/paymentresult/success`,
             "failure": `${host}/paymentresult/failure`,
@@ -61,15 +62,15 @@ app.get('/detail', function (req, res) {
         items: [{
             ID: 1234,
             title: prod.title,
-            description: prod.asset,
+            description: "Dispositivo móvil de Tienda e-commerce",
             unit_price: prod.price,
             picture_url: `${host}${prod.img}`,
-            quantity: 1
+            quantity: 1,
         }],
         "payer": {
             "name": "Lalo",
             "surname": "Landa",
-            "email": "user@email.com",
+            "email": "test_user_632744575@testuser.com",
             "phone": {
                 "area_code": "11",
                 "number": 22223333
