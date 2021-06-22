@@ -34,9 +34,6 @@ app.get('/detail', function (req, res) {
     var currentUrl = fullUrl(req);
 
     var host = `${currentUrl.protocol}://${currentUrl.host}`;
-    console.log('Esto es url');
-    console.log(host)
-    console.log('.....');
 
     // Agrega credenciales
     mercadopago.configure({
@@ -54,7 +51,7 @@ app.get('/detail', function (req, res) {
     // Crea un objeto de preferencia
     let preference = {
         auto_return: 'approved',
-        notification_url: 'https://enthx4gfh6ehkq1.m.pipedream.net',
+        notification_url: 'https://hookb.in/eKKYYQKpNDTeYYRdZdeM',
         collector_id: 469485398,
         back_urls: {
             "success": `${host}/paymentresult/success`,
@@ -96,32 +93,24 @@ app.get('/detail', function (req, res) {
     };
 
     mercadopago.preferences.create(preference).then(function (response) {
-
         console.log('Entering..')
-        // Este valor reemplazará el string "<%= global.id %>" en tu HTML
         global.id = response.body.id;
 
-        console.log(preference);
-
         if (response.status == 201) {
-            console.log(response.body.init_point);
-
             res.render('detail', {
                 vdata: req.query,
+                prefLin: response.body.init_point,
                 prefId: response.body.id,
                 page: 'item'
             });
-
         } else {
             res.sendStatus(404);
         }
         console.log('Finalizing...')
-
     }).catch(function (error) {
         console.log(error);
         res.sendStatus(404);
     });
-
 });
 
 app.get('/paymentresult/success', (req, res) => {
@@ -129,18 +118,18 @@ app.get('/paymentresult/success', (req, res) => {
     var query = req.query;
     var currentUrl = fullUrl(req);
     var host = `${currentUrl.protocol}://${currentUrl.host}`;
-    res.render('success', {host: host, data: query });
+    res.render('success', {host: host, data: query, page: 'item' });
 })
 
 app.get('/paymentresult/failure', (req, res) => {
     var currentUrl = fullUrl(req);
     var host = `${currentUrl.protocol}://${currentUrl.host}`;
     console.log(host);
-    res.render('failure', {url: host});
+    res.render('failure', {url: host, page: 'item'});
 })
 
 app.get('/paymentresult/pending', (req, res) => {
-    res.render('pending', {});
+    res.render('pending', {page: 'item'});
 })
 
 app.listen(port);

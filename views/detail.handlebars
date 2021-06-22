@@ -5,10 +5,12 @@
             locale: 'es-AR'
         });
 
+        console.log("{{prefId}}");
+
         // Inicializa el checkout
         mp.checkout({
             preference: {
-                id: '{{prefId}}'
+                id: "{{prefId}}"
             },
             render: {
                 container: '.cho-container', // Indica dónde se mostrará el botón de pago
@@ -18,6 +20,10 @@
     });
 
 </script>
+
+<div>
+    asa
+</div>
 
 <div class="as-search-wrapper" role="main">
     <div class="as-navtuck-wrapper">
